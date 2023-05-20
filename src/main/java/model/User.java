@@ -8,16 +8,22 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
+//@AllArgsConstructor
+//@Builder
 @Entity
 @Table(name="players_party")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String nickName;
     private String playerClass;
     private int playerLevel;
+
+    public User(String nickName, String playerClass, int playerLevel) {
+        this.nickName = nickName;
+        this.playerClass = playerClass;
+        this.playerLevel = playerLevel;
+    }
 
 }
