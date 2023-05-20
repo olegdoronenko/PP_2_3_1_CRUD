@@ -16,7 +16,7 @@ public class UserDaoImp implements UserDao{
 
     @Override
     public void saveUser(User user) {
-
+        sessionFactory.getCurrentSession().save(user);
     }
 
     @Override
