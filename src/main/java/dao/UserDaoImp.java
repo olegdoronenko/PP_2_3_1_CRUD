@@ -13,10 +13,19 @@ public class UserDaoImp implements UserDao{
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
+    public void addUser(User user) {
+        sessionFactory.getCurrentSession().save(user);
+    }
 
     @Override
-    public void saveUser(User user) {
-        sessionFactory.getCurrentSession().save(user);
+    public void deleteUser(User user) {
+
+    }
+
+    @Override
+    public void modifyUser(User user) {
+
     }
 
     @Override

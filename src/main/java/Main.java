@@ -18,7 +18,9 @@ public class Main {
 
         UserService userService = context.getBean(UserService.class);
 
-        userService.saveUser(new User("Gorgu", "Barbarian", 3));
+        userService.addUser(new User("Pikabu", "Cleric", 1));
+        userService.addUser(new User("00Dwarf", "Thief", 5));
+        userService.addUser(new User("Baylong", "Palladin", 2));
 
 
 
