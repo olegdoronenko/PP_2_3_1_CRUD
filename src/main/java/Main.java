@@ -11,7 +11,6 @@ import java.sql.SQLException;
 @Service
 public class Main {
 
-    //private static User user = new User();
     public static void main(String[] args) throws SQLException {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
@@ -22,15 +21,6 @@ public class Main {
         userService.addUser(new User("00Dwarf", "Thief", 5));
         userService.addUser(new User("Baylong", "Palladin", 2));
 
-
-
-
-//        user.setNickName("Gorgy");
-//        user.setPlayerClass("Barbarian");
-//        user.setPlayerLevel(5);
-//        System.out.println(user.getNickName());
-//        System.out.println(user.getPlayerClass());
-//        System.out.println(user.getPlayerLevel());
 
     }
 }
