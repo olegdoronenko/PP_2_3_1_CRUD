@@ -24,8 +24,14 @@ public class Main {
             System.out.println(user.getNickName());
         }
 
-        userService.cleanUserTable();
+        userService.deleteUser(1);
+        userService.deleteUser(2);
+        userService.deleteUser(3);
+        userService.deleteUser(4);
 
+        for (User user: userService.getUsersList()) {
+            System.out.println(user.getNickName());
+        }
 
 
 
