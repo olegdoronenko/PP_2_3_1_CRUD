@@ -17,9 +17,16 @@ public class Main {
 
         UserService userService = context.getBean(UserService.class);
 
-        userService.addUser(new User("Pikabu", "Cleric", 1));
-        userService.addUser(new User("00Dwarf", "Thief", 5));
-        userService.addUser(new User("Baylong", "Palladin", 2));
+//        userService.addUser(new User("Pikabu", "Cleric", 1));
+//        userService.addUser(new User("00Dwarf", "Thief", 5));
+//        userService.addUser(new User("Baylong", "Palladin", 2));
+        for (User user: userService.getUsersList()) {
+            System.out.println(user.getNickName());
+        }
+
+        userService.cleanUserTable();
+
+
 
 
     }

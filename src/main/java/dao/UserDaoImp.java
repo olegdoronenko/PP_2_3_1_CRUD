@@ -21,14 +21,25 @@ public class UserDaoImp implements UserDao{
         entityManager.flush();
     }
 
+    public User findUserById(long id) {
+        return entityManager.find(User.class, id);
+    }
     @Override
     public void deleteUser(User user) {
-
+        entityManager.remove(user);
+        entityManager.flush();
+    }
+    @Override
+    public void deleteUser(long id) {
+        User user = findUserById(id);
+        entityManager.remove(user);
+        entityManager.flush();
     }
 
     @Override
     public void modifyUser(User user) {
-
+        entityManager.merge(user);
+        entityManager.flush();
     }
 
     @Override
@@ -38,6 +49,6 @@ public class UserDaoImp implements UserDao{
 
     @Override
     public List<User> getUsersList() {
-        return null;
+        return entityManager.createQuery("FROM model.User", User.class).getResultList();
     }
 }
