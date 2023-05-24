@@ -3,13 +3,14 @@ package dao;
 import model.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Repository
+@Component
 public class UserDaoImp implements UserDao{
 
     @PersistenceContext
@@ -20,7 +21,7 @@ public class UserDaoImp implements UserDao{
         entityManager.persist(user);
         entityManager.flush();
     }
-
+    @Override
     public User findUserById(long id) {
         return entityManager.find(User.class, id);
     }
@@ -40,11 +41,6 @@ public class UserDaoImp implements UserDao{
     public void modifyUser(User user) {
         entityManager.merge(user);
         entityManager.flush();
-    }
-
-    @Override
-    public void cleanUserTable() {
-
     }
 
     @Override

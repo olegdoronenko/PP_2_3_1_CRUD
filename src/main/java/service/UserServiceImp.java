@@ -44,8 +44,8 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public void cleanUserTable() {
-        userDao.cleanUserTable();
+    public User findUserById(long id) {
+        return userDao.findUserById(id);
     }
 
 

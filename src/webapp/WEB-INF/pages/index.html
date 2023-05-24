@@ -16,6 +16,8 @@
         <th scope="col">Nickname</th>
         <th scope="col">Player Class</th>
         <th scope="col">Player Level</th>
+        <th scope="col">Modify player</th>
+
       </tr>
       </thead>
       <tbody>
@@ -25,10 +27,37 @@
         <td th:text="${user.getPlayerClass()}"/>
         <td th:text="${user.getPlayerLevel()}"/>
 
+        <td>
+          <a th:href="@{/{id}(id=${user.getId()})}">
+            <input type="button" value="Modify">
+        </td>
+
       </tr>
       </tbody>
-
     </table>
+  </div>
+
+  <h5>Game Menu:</h5>
+  <br>
+
+
+  <div>
+    <form method="POST" action="index">
+      <br>
+      <h6>Add new player to party</h6>
+      <label for="nickname">Nickname</label>
+      <input nickname="nickname" type="text" id="nickname">
+
+      <label for="player-class">Player Class</label>
+      <input player-class="player-class" type="text" id="player-class">
+
+      <label for="player-level">Player Level</label>
+      <input player-level="player-level" type="text" id="player-level">
+
+      <input type="submit" value="Add player"/>
+
+    </form>
+
   </div>
 </body>
 </html>
