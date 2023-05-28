@@ -30,13 +30,13 @@
             <td th:text="${user.getPlayerClass()}"/>
             <td th:text="${user.getPlayerLevel()}"/>
             <td>
-                <form method="post" action="index">
+                <a th:href="@{/{id}/edit (id=${user.getId()})}">
                     <input type="button" value="Edit">
-                </form>
+                </a>
             </td>
             <td>
-                <form method="post" action="delete">
-                    <input type="button" value="Delete">
+                <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
+                    <input type="submit" value="Delete">
                 </form>
             </td>
         </tr>

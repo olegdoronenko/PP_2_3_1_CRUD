@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 @Data
 @NoArgsConstructor
-//@AllArgsConstructor
-//@Builder
 @Entity
 @Table(name="players_party")
 public class User {
