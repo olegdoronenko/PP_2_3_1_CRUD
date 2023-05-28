@@ -24,22 +24,24 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/{id}")
-    public String printOneUser(@PathVariable("id") long id, Model model) {
+    @GetMapping("{id}")
+    public String printOneUser(@PathVariable("id") long id, ModelMap model) {
         model.addAttribute("user", userService.findUserById(id));
         return "show";
     }
 
-    @PostMapping()
-    public String printNew(@RequestParam("nickname") String nickName, @RequestParam("player-class") String playerClass,
-                         @RequestParam("player-level") int playerLevel, ModelMap model) {
-        User user = new User(nickName, playerClass, playerLevel);
-
-        model.addAttribute("usersList", user);
-        userService.addUser(user);
-       return "success page";
+    @GetMapping("new")
+    public String printAddForm(ModelMap model) {
+        model.addAttribute("user", new User());
+        return "new";
     }
 
-
+    @PostMapping()
+    public String createNewUser(@ModelAttribute("user") User user, ModelMap model) {
+        userService.addUser(user);
+        model.addAttribute("user");
+        printOneUser(user.getId(), model);
+        return "show";
+    }
 
 }
